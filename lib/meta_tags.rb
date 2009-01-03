@@ -118,7 +118,7 @@ module MetaTags
     if title.blank?
       result = content_tag :title, meta_tags[:site]
     else
-      title = normalize_title(title)
+      title = normalize_title(meta_tags[:site]) + normalize_title(title)
       title.reverse! if meta_tags[:reverse] === true
       sep = prefix + separator + suffix
       result = content_tag(:title, title.join(sep))
